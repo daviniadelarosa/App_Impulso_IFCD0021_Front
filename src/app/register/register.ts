@@ -25,7 +25,7 @@ export class RegisterComponent {
     const { email, password, confirmPassword } = this.form.value;
 
     if (this.form.valid && password === confirmPassword) {
-      this.http.post('http://localhost:8080/api/auth/register', { email, password })
+      this.http.post('http://localhost:8080/api/users/register', { email, password })
         .subscribe({
           next: () => alert('Registro exitoso'),
           error: err => alert('Error: ' + err.message)
