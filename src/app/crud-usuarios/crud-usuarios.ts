@@ -41,7 +41,7 @@ export class CRUDUsuariosComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       if (this.editMode && this.editUserId !== null) {
-        this.http.put(`http://localhost:8080/api/users/${this.editUserId}`, this.form.value)
+        this.http.patch(`http://localhost:8080/api/users/${this.editUserId}`, this.form.value)
           .subscribe(() => {
             this.loadUsers();
             this.resetForm();
