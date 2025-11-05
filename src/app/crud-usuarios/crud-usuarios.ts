@@ -33,7 +33,8 @@ export class CRUDUsuariosComponent implements OnInit {
   }
 
   loadUsers() {
-    this.http.get<User[]>('http://localhost:8080/api/users').subscribe(data => {
+    this.http.get<User[]>('http://localhost:8080/api/users')
+    .subscribe(data => {
       this.users = data;
     });
   }
@@ -47,7 +48,7 @@ export class CRUDUsuariosComponent implements OnInit {
             this.resetForm();
           });
       } else {
-        this.http.post('http://localhost:8080/api/users', this.form.value)
+        this.http.post('http://localhost:8080/api/users/register', this.form.value)
           .subscribe(() => {
             this.loadUsers();
             this.resetForm();
